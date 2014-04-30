@@ -1,6 +1,11 @@
-package it.uniroma1.lcl.wimmp.galician.morphoRules;
+package it.uniroma1.lcl.wimmp.morphoRules;
 
-public abstract class GalicianMorphoRulesVerb {
+import java.util.List;
+
+import it.uniroma1.lcl.wimmp.MorphoForm;
+import it.uniroma1.lcl.wimmp.MorphoRule;
+
+public abstract class GLMorphoRuleVerb implements MorphoRule {
 
 	/*
 	*	Let's assume that the verbs have this form:
@@ -15,21 +20,30 @@ public abstract class GalicianMorphoRulesVerb {
 	*/
 
 
+	
+
 	private String title, text;
-	private final String VERB = "gl-verb";
 
 	protected String stem, ending;
 
 	protected String present, preterite, past;
 
-	public GalicianMorphoRulesVerb(String title, String text){
+	public GLMorphoRuleVerb(String title, String text){
 		this.title = title;
 		this.text = text;
 
 		getStemAndEnding();
+		
+		this.present = findException("pres=");
+		this.preterite = findException("pret=");
+		this.past = findException("part=");
 	}
 
 
+	@Override
+	public List<MorphoForm> getForms() {
+		return null;
+	}
 
 	protected void getStemAndEnding(){
 		if(text.contains("gl-verb")){
@@ -47,7 +61,6 @@ public abstract class GalicianMorphoRulesVerb {
 			else
 				ending = text.substring(stemEnding, verbEndingIndex);
 			
-			
 		}
 		
 	}
@@ -62,7 +75,7 @@ public abstract class GalicianMorphoRulesVerb {
 			if(pipeIndex != -1 && pipeIndex < parenthesisIndex){
 				return text.substring(exceptionIndex + exception.length(), pipeIndex);
 			}
-			else if( parenthesisIndex == -1){
+			else if( parenthesisIndex > -1){
 				return text.substring(exceptionIndex + exception.length(), parenthesisIndex);
 			}
 		}
