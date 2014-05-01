@@ -4,12 +4,12 @@ public class MorphoForm
 {
 	private String form;
 	private String info;
-	
+
 	public MorphoForm(String form)
 	{
 		this(form, "No-Info");
 	}
-	
+
 	public MorphoForm(String form, String info)
 	{
 		this.form = form;
@@ -18,5 +18,8 @@ public class MorphoForm
 	
 	public String getForm(){ return form; }
 	public String getInfo(){ return info; }
+
+	public void setForm(String form) { this.form = form; }
+	public void setInfo(String info) { this.info = info; }
 
 }

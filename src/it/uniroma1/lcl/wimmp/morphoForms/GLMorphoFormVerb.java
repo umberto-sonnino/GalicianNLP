@@ -11,11 +11,27 @@ public class GLMorphoFormVerb extends MorphoForm {
 		
 		this.tense = tense;
 		this.person = person;
-			
+		
 	}
 
 	public GLMorphoFormVerb(String form, String info) {
 		super(form, info);
 	}
 
+	public String getTense() {
+		return tense;
+	}
+
+	public String getPerson() {
+		return person;
+	}
+
+	public void setTense(String tense) {
+		this.tense = tense;
+	}
+
+	public void setPerson(String person) {
+		this.person = person;
+	}
+	
 }
