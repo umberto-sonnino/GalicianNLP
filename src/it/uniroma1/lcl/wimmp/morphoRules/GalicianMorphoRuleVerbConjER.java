@@ -1,13 +1,13 @@
 package it.uniroma1.lcl.wimmp.morphoRules;
 
 import it.uniroma1.lcl.wimmp.MorphoForm;
-import it.uniroma1.lcl.wimmp.morphoForms.GLMorphoFormVerb;
+import it.uniroma1.lcl.wimmp.morphoForms.GalicianMorphoFormVerb;
 
 import java.util.List;
 
 import javax.naming.PartialResultException;
 
-public class GLMorphoRuleVerbConjER extends GLMorphoRuleVerb {
+public class GalicianMorphoRuleVerbConjER extends GalicianMorphoRuleVerb {
 
 	private final String[] suffixes = { 
 			"er", 													// 0 - infinite 
@@ -28,7 +28,7 @@ public class GLMorphoRuleVerbConjER extends GLMorphoRuleVerb {
 			"er", "eres", "er", "ermos", "erdes", "eren" 			//70-75 personal infinitive
 	};
 	
-	public GLMorphoRuleVerbConjER(String title, String text) {
+	public GalicianMorphoRuleVerbConjER(String title, String text) {
 		super(title, text);
 	}
 
@@ -37,29 +37,29 @@ public class GLMorphoRuleVerbConjER extends GLMorphoRuleVerb {
 		super.getForms(); //fills the entries with just the stem
 		
 		for (int i = 0; i < forms.size(); i++) {
-			((GLMorphoFormVerb) forms.get(i)).setForm(stem + suffixes[i]);
+			((GalicianMorphoFormVerb) forms.get(i)).setForm(stem + suffixes[i]);
 		}
 		
 		if(!present.equals("")){ 
 			//FIRST PERSON SINGULAR PRESENT INDICATIVE IS #6
-			((GLMorphoFormVerb) forms.get(6)).setForm(present);
+			((GalicianMorphoFormVerb) forms.get(6)).setForm(present);
 		}
 		
 		if(!past.equals("")){
 			//PAST PARTICIPLE GUYS ARE #2-#5
-			((GLMorphoFormVerb) forms.get(2)).setForm(past);
-			((GLMorphoFormVerb) forms.get(3)).setForm(past);
-			((GLMorphoFormVerb) forms.get(4)).setForm(past);
-			((GLMorphoFormVerb) forms.get(5)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(2)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(3)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(4)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(5)).setForm(past);
 		}
 		
 		if(!preterite.equals("")){
 			//FIRST PERSON SINGULAR PRETERITE INDICATIVE IS #18
-			((GLMorphoFormVerb) forms.get(18)).setForm(preterite);
+			((GalicianMorphoFormVerb) forms.get(18)).setForm(preterite);
 		}
 		
 		for(MorphoForm form: forms){
-			GLMorphoFormVerb temp = (GLMorphoFormVerb)form;
+			GalicianMorphoFormVerb temp = (GalicianMorphoFormVerb)form;
 			System.out.println("FORM: " + temp.getForm() + "; TENSE: " + temp.getTense() + "; PERSON: " + temp.getPerson());
 		}
 		

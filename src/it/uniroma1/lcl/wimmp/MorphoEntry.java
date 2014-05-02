@@ -8,7 +8,9 @@ public class MorphoEntry
 		NOUN("n"),
 		VERB("v"),
 		ADJECTIVE("a"),
-		ADVERB("r");
+		ADVERB("r"),
+		PROPERNOUN("pn"),
+		CONJUNCTION("conj");
 		
 		private String pos;
 		

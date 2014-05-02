@@ -1,14 +1,14 @@
 package it.uniroma1.lcl.wimmp.morphoRules;
 
 import it.uniroma1.lcl.wimmp.MorphoForm;
-import it.uniroma1.lcl.wimmp.morphoForms.GLMorphoFormVerb;
+import it.uniroma1.lcl.wimmp.morphoForms.GalicianMorphoFormVerb;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.PartialResultException;
 
-public class GLMorphoRuleVerbConjAR extends GLMorphoRuleVerb {
+public class GalicianMorphoRuleVerbConjAR extends GalicianMorphoRuleVerb {
 	
 	
 
@@ -31,7 +31,7 @@ public class GLMorphoRuleVerbConjAR extends GLMorphoRuleVerb {
 			"ar", "ares", "ar", "armos", "ardes", "aren" 			//70-75 personal infinitive
 	};
 	
-	public GLMorphoRuleVerbConjAR(String title, String text) {
+	public GalicianMorphoRuleVerbConjAR(String title, String text) {
 		super(title, text);
 	}
 
@@ -41,25 +41,25 @@ public class GLMorphoRuleVerbConjAR extends GLMorphoRuleVerb {
 	public List<MorphoForm> getForms() {
 		
 		for (int i = 0; i < forms.size(); i++) {
-			((GLMorphoFormVerb) forms.get(i)).setForm(stem + suffixes[i]);
+			((GalicianMorphoFormVerb) forms.get(i)).setForm(stem + suffixes[i]);
 		}
 		
 		if(!present.equals("")){ 
 			//FIRST PERSON SINGULAR PRESENT INDICATIVE IS #6
-			((GLMorphoFormVerb) forms.get(6)).setForm(present);
+			((GalicianMorphoFormVerb) forms.get(6)).setForm(present);
 		}
 		
 		if(!past.equals("")){
 			//PAST PARTICIPLE GUYS ARE #2-#5
-			((GLMorphoFormVerb) forms.get(2)).setForm(past);
-			((GLMorphoFormVerb) forms.get(3)).setForm(past);
-			((GLMorphoFormVerb) forms.get(4)).setForm(past);
-			((GLMorphoFormVerb) forms.get(5)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(2)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(3)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(4)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(5)).setForm(past);
 		}
 		
 		if(!preterite.equals("")){
 			//FIRST PERSON SINGULAR PRETERITE INDICATIVE IS #18
-			((GLMorphoFormVerb) forms.get(18)).setForm(preterite);
+			((GalicianMorphoFormVerb) forms.get(18)).setForm(preterite);
 		}
 
 		return forms;

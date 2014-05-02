@@ -2,11 +2,11 @@ package it.uniroma1.lcl.wimmp.morphoForms;
 
 import it.uniroma1.lcl.wimmp.MorphoForm;
 
-public class GLMorphoFormVerb extends MorphoForm {
+public class GalicianMorphoFormVerb extends MorphoForm {
 
 	private String tense, person;
 	
-	public GLMorphoFormVerb(String form, String tense, String person) {
+	public GalicianMorphoFormVerb(String form, String tense, String person) {
 		super(form, tense + " " + person);
 		
 		this.tense = tense;
@@ -14,7 +14,7 @@ public class GLMorphoFormVerb extends MorphoForm {
 		
 	}
 
-	public GLMorphoFormVerb(String form, String info) {
+	public GalicianMorphoFormVerb(String form, String info) {
 		super(form, info);
 	}
 
