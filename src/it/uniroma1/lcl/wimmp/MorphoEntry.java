@@ -10,7 +10,8 @@ public class MorphoEntry
 		ADJECTIVE("a"),
 		ADVERB("r"),
 		PROPERNOUN("pn"),
-		CONJUNCTION("conj");
+		CONJUNCTION("conj"),
+		PRONOUN("prn");
 		
 		private String pos;
 		
