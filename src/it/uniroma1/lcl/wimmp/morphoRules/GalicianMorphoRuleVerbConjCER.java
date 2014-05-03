@@ -5,9 +5,9 @@ import it.uniroma1.lcl.wimmp.morphoForms.GalicianMorphoFormVerb;
 
 import java.util.List;
 
-public class GalicianMorphoRuleConjCER extends GalicianMorphoRuleVerbConjER {
+public class GalicianMorphoRuleVerbConjCER extends GalicianMorphoRuleVerbConjER {
 
-	public GalicianMorphoRuleConjCER(String title, String text) {
+	public GalicianMorphoRuleVerbConjCER(String title, String text) {
 		super(title, text);
 		
 		String[] CERsuffixes = {
