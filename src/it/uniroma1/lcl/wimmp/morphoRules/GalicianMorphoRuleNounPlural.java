@@ -57,10 +57,12 @@ public class GalicianMorphoRuleNounPlural extends GalicianMorphoRuleNoun {
 			}
 			
 			if(fromIndex!=-1 && toIndex!=-1){
-				 findException= super.getText().substring(fromIndex+3, toIndex);
+				if(fromIndex+3<toIndex)
+					findException= super.getText().substring(fromIndex+3, toIndex);
 			}else
 			if(fromIndex2!=-1 && toIndex!=-1){
-				findException= super.getText().substring(fromIndex2+3, toIndex);
+				if(fromIndex2+3<toIndex)
+					findException= super.getText().substring(fromIndex2+3, toIndex);
 			}		
 			
 			System.out.println(findException);

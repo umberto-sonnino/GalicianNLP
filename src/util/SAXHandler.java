@@ -44,7 +44,8 @@ public class SAXHandler extends DefaultHandler {
 						String newText=this.extractInformationGlVerb(this.morphoEntry.getText());
 						this.MorphoEntrylist.add(new MorphoEntryFromXml(this.morphoEntry.getTitle(),newText));
 					}
-					if(this.morphoEntry.getText().contains("{{gl-adj")){
+					if(this.morphoEntry.getText().contains("{{gl-adj")
+							|| this.morphoEntry.getText().contains("{{head|gl|adjective form")){
 						String newText=extractInformationGlAdjective(this.morphoEntry.getText());
 						this.MorphoEntrylist.add(new MorphoEntryFromXml(this.morphoEntry.getTitle(),newText));
 					}
@@ -211,15 +212,30 @@ public class SAXHandler extends DefaultHandler {
 	 */
 	public String extractInformationGlAdjective(String text){
 		
+		String adj="",head="",plural="";
+		
 		int fromIndex = text.indexOf("{{gl-adj");
 		int toIndex = text.indexOf("}}", fromIndex);
-
 		if(fromIndex!=-1 && toIndex!=-1){
 			String substring = text.substring(fromIndex, toIndex+2);
-			return substring;
+			adj = substring;
 		}
 		
-		return "";
+		fromIndex = text.indexOf("{{head|gl|adjective form",fromIndex);
+		toIndex = text.indexOf("}}", fromIndex);
+		if(fromIndex!=-1 && toIndex!=-1){
+			String substring = text.substring(fromIndex, toIndex+2);
+			head = substring;
+		}	
+		
+		fromIndex = text.indexOf("{{plural of|",fromIndex);
+		toIndex = text.indexOf("}}", fromIndex);
+		if(fromIndex!=-1 && toIndex!=-1){
+			String substring = text.substring(fromIndex, toIndex+2);
+			plural = substring;
+		}	
+			
+		return adj+head+plural;
 	}
 	
 	/**

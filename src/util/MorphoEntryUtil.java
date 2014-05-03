@@ -6,6 +6,8 @@ package util;
 import it.uniroma1.lcl.wimmp.MorphoEntry;
 import it.uniroma1.lcl.wimmp.MorphoEntry.POS;
 import it.uniroma1.lcl.wimmp.MorphoRule;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleAdjective;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleAdverb;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleNotFind;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleNounPlural;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleNounSingular;
@@ -43,11 +45,13 @@ public class MorphoEntryUtil {
 		}
 		
 		if(pos==POS.ADJECTIVE){
-			regular = true;
+			regular = adjectiveIsRegular(morpho.getText());
+			morphoRule = new GalicianMorphoRuleAdjective(morpho.getTitle(),morpho.getText(),regular);
 		}
 		
 		if(pos==POS.ADVERB){
 			regular = true;
+			morphoRule = new GalicianMorphoRuleAdverb(morpho.getTitle(),morpho.getText());
 		}
 		
 		if(pos==POS.CONJUNCTION){
@@ -83,7 +87,7 @@ public class MorphoEntryUtil {
 			return POS.NOUN;
 		if(text.contains("{{gl-verb") ||text.contains("{{gl-conj") || text.contains("{{gl-verb-form"))
 			return POS.VERB;
-		if(text.contains("{{gl-adj") )
+		if(text.contains("{{gl-adj") || text.contains("{{head|gl|adjective form"))
 			return POS.ADJECTIVE;
 		if(text.contains("{{gl-adv"))
 			return POS.ADVERB;
@@ -101,7 +105,6 @@ public class MorphoEntryUtil {
 	private static boolean nounIsRegular(String text){
 		
 		boolean ret=true;
-		String findException="";
 		
 		int fromIndex=text.indexOf("|m|");
 		int fromIndex2=text.indexOf("|f|");
@@ -114,17 +117,21 @@ public class MorphoEntryUtil {
 		}
 		
 		if(fromIndex!=-1 && toIndex!=-1){
-			 findException= text.substring(fromIndex+3, toIndex);
 			 ret=false;
 		}else
 		if(fromIndex2!=-1 && toIndex!=-1){
-			findException= text.substring(fromIndex2+3, toIndex);
 			ret=false;
 		}		
 		
-		System.out.println(findException);
-		
 		return ret;
+	}
+	
+	private static boolean adjectiveIsRegular(String text){
+		
+		if(text.contains("pl="))
+			return false;
+		
+		return true;
 	}
 	
 }
