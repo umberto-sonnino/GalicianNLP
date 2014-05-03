@@ -24,13 +24,34 @@ public abstract class GalicianMorphoRuleVerb implements MorphoRule {
 
 
 
-	private String title, text;
+	private String title;
+
+	protected String text;
 
 	protected String stem, ending;
 
 	protected String present, preterite, past;
 
 	protected List<MorphoForm> forms = new ArrayList<MorphoForm>();
+	
+	protected String[] suffixes = {
+			"", 					// 0 - infinite 
+			"", 					// 1 - gerund
+			"", "", 				// 2-3 - past participle masculine
+			"", "", 				// 4-5 - past participle feminine
+			"", "", "", "", "", "",	// 6-11 - present indicative
+			"", "", "", "", "", "",	//12-17 imperfect indicative
+			"", "", "", "", "", "",	//18-23 preterite indicative
+			"", "", "", "", "", "", //24-29 pluperfect indicative
+			"", "", "", "", "", "", // 30-35 future indicative 
+			"", "", "", "", "", "", //36-41 conditional indicative
+			"", "", "", "", "", "",	//42-47 present subjunctive
+			"", "", "", "", "", "",	//48-53 preterite subjunctive 
+			"", "", "", "", "", "",	//54-59 future subjunctive
+			"", "", "", "", "",		//60-64 affirmative imperative 
+			"", "", "", "", "",		//65-69 negative imperative
+			"", "", "", "", "", "" 	//70-75 personal infinitive
+	};
 
 	public GalicianMorphoRuleVerb(String title, String text){
 		this.title = title;
@@ -172,8 +193,6 @@ public abstract class GalicianMorphoRuleVerb implements MorphoRule {
 		forms.add(new GalicianMorphoFormVerb(stem, "personal infinitve", "second plural"));
 		forms.add(new GalicianMorphoFormVerb(stem, "personal infinitve", "third plural"));		//76
 
-		((GalicianMorphoFormVerb)forms.get(0)).setForm("OLEEEEE");
-
 		return forms;
 	}
 
@@ -213,6 +232,40 @@ public abstract class GalicianMorphoRuleVerb implements MorphoRule {
 		}
 		return "";
 
+	}
+	
+	protected void setPresent(){
+		if(!present.equals("")){ 
+			//FIRST PERSON SINGULAR PRESENT INDICATIVE IS #6
+			((GalicianMorphoFormVerb) forms.get(6)).setForm(present);
+		}
+	}
+	
+	
+	protected void setPastParticiple(){
+		
+		if(!past.equals("")){
+			//PAST PARTICIPLE GUYS ARE #2-#5
+			((GalicianMorphoFormVerb) forms.get(2)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(3)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(4)).setForm(past);
+			((GalicianMorphoFormVerb) forms.get(5)).setForm(past);
+		}
+		
+	}
+	
+	protected void setPreterite(){
+		if(!preterite.equals("")){
+			//FIRST PERSON SINGULAR PRETERITE INDICATIVE IS #18
+			((GalicianMorphoFormVerb) forms.get(18)).setForm(preterite);
+		}
+
+	}
+	
+	protected void setSuffixes(){
+		for (int i = 0; i < forms.size(); i++) {
+			((GalicianMorphoFormVerb) forms.get(i)).setForm(stem + suffixes[i]);
+		}
 	}
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class GalicianMorphoRuleVerbConjIR extends GalicianMorphoRuleVerb {
 
-	private final String[] suffixes = { 
+	protected String[] suffixes = { 
 			"ir", 													// 0 - infinite 
 			"indo", 												// 1 - gerund
 			"ido", "idos", 											// 2-3 - past participle masculine
