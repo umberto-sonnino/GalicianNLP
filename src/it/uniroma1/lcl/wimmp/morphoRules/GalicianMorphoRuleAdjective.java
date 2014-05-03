@@ -72,6 +72,7 @@ public class GalicianMorphoRuleAdjective implements MorphoRule {
 		return al;
 	}
 	
+	
 	private String findPart(String part){
 		String findException="";
 		int toIndex=-1;
