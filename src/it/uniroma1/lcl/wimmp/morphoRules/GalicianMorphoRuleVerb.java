@@ -200,7 +200,7 @@ public abstract class GalicianMorphoRuleVerb implements MorphoRule {
 		if(text.contains("gl-verb")){
 
 			int glVerbIndex = text.indexOf("gl-verb");
-			int verbIndex = text.indexOf("|", glVerbIndex);
+			int verbIndex = text.indexOf("|", glVerbIndex) + 1; //+1 to get past the pipe
 			int stemEnding = text.indexOf("|", verbIndex);
 			stem = text.substring(verbIndex, stemEnding);
 			
