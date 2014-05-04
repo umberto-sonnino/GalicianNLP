@@ -35,8 +35,9 @@ public class GalicianMorphoRuleNounPlural extends GalicianMorphoRuleNoun {
 		if(super.getText().contains("|f"))
 			gender="feminine";
 		
-		if(super.getText().contains("|-}}"))
+		if(super.getText().contains("|-")){
 			uncontable="uncontable";
+		}
 		
 		if(uncontable!=""){
 			al.add(new MorphoForm(super.getTitle(),gender+" "+ uncontable +" plural"));
@@ -65,7 +66,6 @@ public class GalicianMorphoRuleNounPlural extends GalicianMorphoRuleNoun {
 					findException= super.getText().substring(fromIndex2+3, toIndex);
 			}		
 			
-			System.out.println(findException);
 			al.add(new MorphoForm(findException,gender+" plural"));
 		}
 		

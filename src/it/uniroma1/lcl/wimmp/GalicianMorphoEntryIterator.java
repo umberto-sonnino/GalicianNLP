@@ -37,11 +37,11 @@ public class GalicianMorphoEntryIterator extends MorphoEntryIterator {
 	    SAXParser parser = parserFactor.newSAXParser();
 	    SAXHandler handler = new SAXHandler();
 	    //parser.parse(new File("prova.xml"),handler);
-        parser.parse("enwiktionary-latest-pages-articles.xml",handler);
+	    parser.parse(new File(super.getDumps()[0]),handler);
 	     
 	    al=handler.getMorphoEntrylist();
 	    
-	    System.out.println(al.size());
+	    //System.out.println(al.size());
 	}
 
 	/* (non-Javadoc)
@@ -60,8 +60,6 @@ public class GalicianMorphoEntryIterator extends MorphoEntryIterator {
 	@Override
 	public MorphoEntry next() {
 		MorphoEntryFromXml morpho=al.get(index);
-		System.out.println(morpho.getTitle());
-		System.out.println(morpho.getText());
 		MorphoEntry me=MorphoEntryUtil.MorphoEntryResult(morpho);
 		index++;
 		return me;
