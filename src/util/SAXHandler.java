@@ -206,6 +206,7 @@ public class SAXHandler extends DefaultHandler {
 				conjOf = text.substring(fromIndexConjOf, toIndexConjOf+2);
 		}
 		
+		
 		fromIndexConjOf=text.indexOf("{{conjugation of",toIndexConjOf);
 		toIndexConjOf=-1;
 		if(fromIndexConjOf!=-1)
