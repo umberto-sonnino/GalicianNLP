@@ -7,7 +7,7 @@ import java.util.List;
 
 public class GalicianMorphoRuleVerbConjIRvarEI extends GalicianMorphoRuleVerbConjIR{
 
-	private String modifiedStem = "";
+	protected String modifiedStem = "";
 	
 	public GalicianMorphoRuleVerbConjIRvarEI(String title, String text) {
 		super(title, text);
@@ -15,7 +15,7 @@ public class GalicianMorphoRuleVerbConjIRvarEI extends GalicianMorphoRuleVerbCon
 		
 	}
 
-	private void getModifiedStem() {
+	protected void getModifiedStem() {
 		
 		if(text.contains("gl-conj-ir (e-i)")){
 			int verbNameIndex = text.indexOf("gl-conj-ir (e-i)");
