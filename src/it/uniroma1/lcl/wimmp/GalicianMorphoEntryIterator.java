@@ -37,7 +37,7 @@ public class GalicianMorphoEntryIterator extends MorphoEntryIterator {
 	    SAXParser parser = parserFactor.newSAXParser();
 	    SAXHandler handler = new SAXHandler();
 	    parser.parse(new File("prova.xml"),handler);
-        //parser.parse("enwiktionary-latest-pages-articles.xml",handler);
+       // parser.parse("enwiktionary-latest-pages-articles.xml",handler);
 	     
 	    al=handler.getMorphoEntrylist();
 	    

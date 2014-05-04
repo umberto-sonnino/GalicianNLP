@@ -13,16 +13,17 @@ import it.uniroma1.lcl.wimmp.MorphoRule;
  * @author federicoscafoglieri
  *
  */
-public class GalicianMorphoRuleProperNoun implements MorphoRule {
+public class GalicianMorphoRuleConjunction implements MorphoRule {
 	
 	String title;
 	String text;
 	
-	public GalicianMorphoRuleProperNoun(String title,String text){
+	
+	public GalicianMorphoRuleConjunction(String title,String text){
 		this.title=title;
 		this.text=text;
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see it.uniroma1.lcl.wimmp.MorphoRule#getForms()
 	 */
@@ -30,13 +31,6 @@ public class GalicianMorphoRuleProperNoun implements MorphoRule {
 	public List<MorphoForm> getForms() {
 		// TODO Auto-generated method stub
 		ArrayList<MorphoForm> al=new ArrayList<MorphoForm>();
-		
-		if(text.contains("|f"))
-			al.add(new MorphoForm(this.title,"feminile"));
-		if(text.contains("|m"))
-			al.add(new MorphoForm(this.title,"masculine"));
-		
-		
 		return al;
 	}
 

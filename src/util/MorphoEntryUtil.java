@@ -8,9 +8,12 @@ import it.uniroma1.lcl.wimmp.MorphoEntry.POS;
 import it.uniroma1.lcl.wimmp.MorphoRule;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleAdjective;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleAdverb;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleConjunction;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleNotFind;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleNounPlural;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleNounSingular;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRulePronoun;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleProperNoun;
 
 /**
  * @author Federico Scafoglieri & Umberto Sonnino
@@ -56,14 +59,17 @@ public class MorphoEntryUtil {
 		
 		if(pos==POS.CONJUNCTION){
 			regular = true;
+			morphoRule = new GalicianMorphoRuleConjunction(morpho.getTitle(),morpho.getText());
 		}
 		
 		if(pos==POS.PROPERNOUN){
 			regular = false;
+			morphoRule = new GalicianMorphoRuleProperNoun(morpho.getTitle(),morpho.getText());
 		}
 		
 		if(pos==POS.PRONOUN){
-			regular = true;
+			regular = false;
+			morphoRule = new GalicianMorphoRulePronoun(morpho.getTitle(),morpho.getText());	
 		}
 		
 		if(pos==null){
