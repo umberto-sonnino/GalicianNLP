@@ -14,6 +14,7 @@ import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleNounPlural;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleNounSingular;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRulePronoun;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleProperNoun;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleVerbFindInformation;
 
 /**
  * @author Federico Scafoglieri & Umberto Sonnino
@@ -44,6 +45,8 @@ public class MorphoEntryUtil {
 		}
 		
 		if(pos==POS.VERB){
+			if(morpho.getText().contains("{{gl-verb") && morpho.getText().contains("{{conjugation of"))
+				morphoRule= new GalicianMorphoRuleVerbFindInformation(morpho.getTitle(),morpho.getText());
 			regular = true;
 		}
 		

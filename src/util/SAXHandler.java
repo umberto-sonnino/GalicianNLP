@@ -176,6 +176,7 @@ public class SAXHandler extends DefaultHandler {
 		String conj = "";
 		String verbForm = "";
 		String conjOf = "";
+		String conjOf2 = "";
 		
 		int fromIndexVerb=text.indexOf("{{gl-verb|");
 		int toIndexVerb=text.indexOf("}}", fromIndexVerb);
@@ -197,12 +198,25 @@ public class SAXHandler extends DefaultHandler {
 
 		int fromThereIndex=text.indexOf("==Galician==");
 		int fromIndexConjOf=text.indexOf("{{conjugation of",fromThereIndex);
-		int toIndexConjOf=text.indexOf("lang=gl}}", fromIndexConjOf);
+		int toIndexConjOf=-1;
+		if(fromIndexConjOf!=-1)
+			toIndexConjOf=text.indexOf("}}", fromIndexConjOf);
 		if(fromIndexConjOf!=-1 && toIndexConjOf!=-1){
-			conjOf = text.substring(fromIndexConjOf, toIndexConjOf+9);
+			if(text.substring(fromIndexConjOf, toIndexConjOf+2).contains("lang=gl"))
+				conjOf = text.substring(fromIndexConjOf, toIndexConjOf+2);
 		}
 		
-		return verb + conj + verbForm + conjOf;
+		
+		fromIndexConjOf=text.indexOf("{{conjugation of",toIndexConjOf);
+		toIndexConjOf=-1;
+		if(fromIndexConjOf!=-1)
+			toIndexConjOf=text.indexOf("}}", fromIndexConjOf);
+		if(fromIndexConjOf!=-1 && toIndexConjOf!=-1){
+			if(text.substring(fromIndexConjOf, toIndexConjOf+2).contains("lang=gl"))
+				conjOf2 = text.substring(fromIndexConjOf, toIndexConjOf+2);
+		}
+		
+		return verb + conj + verbForm + conjOf + conjOf2;
 	}
 
 	/**
