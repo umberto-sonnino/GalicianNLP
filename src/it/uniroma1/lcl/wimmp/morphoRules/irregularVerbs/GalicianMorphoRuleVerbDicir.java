@@ -29,10 +29,18 @@ public class GalicianMorphoRuleVerbDicir extends GalicianMorphoRuleVerb {
 	public GalicianMorphoRuleVerbDicir(String title, String text) {
 		super(title, text);
 		
-		stem = "di";
+		stem = getStem();
 		
 		suffixes = DICIRsuffixes;
 		
+	}
+
+	private String getStem() {
+		int glConjIndex = text.indexOf("gl-conj (dicir)");
+		int pipeIndex = text.indexOf("|", glConjIndex) + 1;
+		int endingIndex = text.indexOf("}}",  pipeIndex);
+		
+		return text.substring(pipeIndex, endingIndex);
 	}
 
 	@Override

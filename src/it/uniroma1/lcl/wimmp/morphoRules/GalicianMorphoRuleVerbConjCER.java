@@ -31,18 +31,19 @@ public class GalicianMorphoRuleVerbConjCER extends GalicianMorphoRuleVerbConjER 
 		
 		suffixes = CERsuffixes;
 		
-		getDifferentStem();
+		stem = getDifferentStem();
 	}
 
 
-	private void getDifferentStem() {
+	private String getDifferentStem() {
 		if(text.contains("gl-conj-cer")){
 			
 			int glConjCERIndex = text.indexOf("gl-conj-cer") + "gl-conj-cer".length() + 1;
 			int parenthesisIndex = text.indexOf("}}", glConjCERIndex);
 			
-			stem = text.substring(glConjCERIndex, parenthesisIndex);
+			return text.substring(glConjCERIndex, parenthesisIndex);
 		}
+		return "";
 	}
 
 
@@ -51,10 +52,7 @@ public class GalicianMorphoRuleVerbConjCER extends GalicianMorphoRuleVerbConjER 
 
 		super.getForms();
 
-		for (int i = 0; i < forms.size(); i++) {
-			((GalicianMorphoFormVerb) forms.get(i)).setForm(stem + suffixes[i]);
-		}
-
+		setSuffixes();
 		setPresent();
 		setPastParticiple();
 		setPreterite();
