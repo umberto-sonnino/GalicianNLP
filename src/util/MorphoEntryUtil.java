@@ -14,6 +14,13 @@ import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleNounPlural;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleNounSingular;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRulePronoun;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleProperNoun;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleVerbConjAR;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleVerbConjCAR;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleVerbConjCER;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleVerbConjER;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleVerbConjIAR;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleVerbConjIR;
+import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleVerbConjUIR;
 import it.uniroma1.lcl.wimmp.morphoRules.GalicianMorphoRuleVerbFindInformation;
 
 /**
@@ -47,6 +54,21 @@ public class MorphoEntryUtil {
 		if(pos==POS.VERB){
 			if(morpho.getText().contains("{{gl-verb") && morpho.getText().contains("{{conjugation of"))
 				morphoRule= new GalicianMorphoRuleVerbFindInformation(morpho.getTitle(),morpho.getText());
+			if(morpho.getText().contains("{{gl-conj-ar|"))
+				morphoRule= new GalicianMorphoRuleVerbConjAR(morpho.getTitle(),morpho.getText());
+			if(morpho.getText().contains("{{gl-conj-car|"))
+				morphoRule= new GalicianMorphoRuleVerbConjCAR(morpho.getTitle(),morpho.getText());
+			if(morpho.getText().contains("{{gl-conj-cer|"))
+				morphoRule= new GalicianMorphoRuleVerbConjCER(morpho.getTitle(),morpho.getText());
+			if(morpho.getText().contains("{{gl-conj-er|"))
+				morphoRule= new GalicianMorphoRuleVerbConjER(morpho.getTitle(),morpho.getText());
+			if(morpho.getText().contains("{{gl-conj-iar|"))
+				morphoRule= new GalicianMorphoRuleVerbConjIAR(morpho.getTitle(),morpho.getText());
+			if(morpho.getText().contains("{{gl-conj-ir|"))
+				morphoRule= new GalicianMorphoRuleVerbConjIR(morpho.getTitle(),morpho.getText());
+			if(morpho.getText().contains("{{gl-conj-uir|"))
+				morphoRule= new GalicianMorphoRuleVerbConjUIR(morpho.getTitle(),morpho.getText());
+									
 			regular = true;
 		}
 		
