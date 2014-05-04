@@ -1615,4 +1615,87 @@ Borrowed from {{etyl|la|es}} {{term/t|la|singulāris}}.
 			<format>text/x-wiki</format>
 		</revision>
 	</page>
+	
+		<page>
+		<title>escusar</title>
+		<ns>0</ns>
+		<id>42342</id>
+		<revision>
+			<id>25663905</id>
+			<parentid>19053411</parentid>
+			<timestamp>2014-02-20T20:48:20Z</timestamp>
+			<contributor>
+				<username>Tigershrike</username>
+				<id>25236</id>
+			</contributor>
+			<comment>cat</comment>
+			<text xml:space="preserve">
+==Galician==
+
+===Etymology===
+From {{etyl|la|gl}} {{term|excūsāre|lang=la}}, present active infinitive of {{term|excūsō|lang=la}}.
+
+===Verb===
+{{gl-verb|escus|ar}}
+
+# to [[excuse]]
+# {{conjugation of|escusar||1|and|3|s|fut|sub|lang=gl}}
+# {{conjugation of|escusar||1|and|3|s|personal|inf|lang=gl}}
+
+====Conjugation====
+{{gl-conj-ar|escus}}
+
+====Related terms====
+* [[escusa]]
+
+[[fr:escusar]]
+[[mg:escusar]]
+[[no:escusar]]
+[[pt:escusar]]
+[[zh:escusar]]
+
+			
+			</text>
+			<sha1>1bc5ctzeukikcieozyhywbpu2lbj008</sha1>
+			<model>wikitext</model>
+			<format>text/x-wiki</format>
+		</revision>
+	</page>
+	
+	
+			<page>
+		<title>as</title>
+		<ns>0</ns>
+		<id>42342</id>
+		<revision>
+			<id>25663905</id>
+			<parentid>19053411</parentid>
+			<timestamp>2014-02-20T20:48:20Z</timestamp>
+			<contributor>
+				<username>Tigershrike</username>
+				<id>25236</id>
+			</contributor>
+			<comment>cat</comment>
+			<text xml:space="preserve">
+==Galician==
+
+===Etymology===
+From {{etyl|la|gl}} {{term/t|la|illās}}, accusative feminine plural of {{term|ille||that|lang=la}}.
+
+===Article===
+{{head|gl|article|g=f-p|feminine singular|a|masculine singular|o|masculine plural|os}}
+
+
+===Pronoun===
+{{gl-pron|form=acconly|g=f pl|nom=elas|obl=elas|dat=lles}}
+
+# [[them]] {{qualifier|feminine plural third-person personal pronoun}}
+
+			
+			</text>
+			<sha1>1bc5ctzeukikcieozyhywbpu2lbj008</sha1>
+			<model>wikitext</model>
+			<format>text/x-wiki</format>
+		</revision>
+	</page>
 </document>

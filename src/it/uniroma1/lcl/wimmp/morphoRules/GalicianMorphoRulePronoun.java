@@ -31,21 +31,26 @@ public class GalicianMorphoRulePronoun implements MorphoRule {
 		// TODO Auto-generated method stub
 		ArrayList<MorphoForm> al=new ArrayList<MorphoForm>();
 		
-		String gender=findPart("|g=");
+		String findGenderAndPerson=findPart("|g=");
+		String genderAndPerson="";
 		String dative=findPart("|dat=");
 		String accusative=findPart("|acc=");
 		
-		if(gender.equals("m"))
-			gender="masculine";
-		if(gender.equals("f"))
-			gender="feminile";
+		if(findGenderAndPerson.contains("m"))
+			genderAndPerson="masculine";
+		if(findGenderAndPerson.contains("f"))
+			genderAndPerson="feminile";
+		if(findGenderAndPerson.contains("pl"))
+			genderAndPerson=genderAndPerson.concat(" plural");
+		if(findGenderAndPerson.contains("s"))
+			genderAndPerson=genderAndPerson.concat(" singular");
 		
-		al.add(new MorphoForm(this.title,"nominative "+gender));
+		al.add(new MorphoForm(this.title,"nominative "+genderAndPerson));
 		
 		if(!dative.equals(""))
-			al.add(new MorphoForm(this.title,"dative "+gender));
+			al.add(new MorphoForm(this.title,"dative "+genderAndPerson));
 		if(!accusative.equals(""))
-			al.add(new MorphoForm(this.title,"accusative "+gender));
+			al.add(new MorphoForm(this.title,"accusative "+genderAndPerson));
 
 		return al;
 	}
