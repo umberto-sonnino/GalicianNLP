@@ -30,6 +30,19 @@ public class GalicianMorphoRuleVerbConjCER extends GalicianMorphoRuleVerbConjER 
 		};
 		
 		suffixes = CERsuffixes;
+		
+		getDifferentStem();
+	}
+
+
+	private void getDifferentStem() {
+		if(text.contains("gl-conj-cer")){
+			
+			int glConjCERIndex = text.indexOf("gl-conj-cer") + "gl-conj-cer".length() + 1;
+			int parenthesisIndex = text.indexOf("}}", glConjCERIndex);
+			
+			stem = text.substring(glConjCERIndex, parenthesisIndex);
+		}
 	}
 
 
