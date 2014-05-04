@@ -1,0 +1,28 @@
+moito#a	true	moito	masculine singular	moitos	masculine plural		feminile singular	s	feminile plural
+moito#r	true
+moito#prn	false	moito	nominative 
+nosoutros#prn	false	nosoutros	nominative masculine	nosoutros	dative masculine	nosoutros	accusative masculine
+moito#a	true	moito	masculine singular	moitos	masculine plural		feminile singular	s	feminile plural
+moito#r	true
+moito#prn	false	moito	nominative 
+tenistas#n	false	tenistas	masculine plural femminile plural	tenista	singular
+numeros primos#n	false	numeros primos	masculine plural	nœmero primo	singular
+falantes nativas#n	false	falantes nativas	femminine plural	falante nativo	feminine singular
+falantes nativos#n	false	falantes nativos	masculine plural	falante nativo	masculine singular
+americio#n	false	americio	masculine uncontable plural
+amoplificacion#n	true	amoplificacions	feminine plural
+articulacion#n	true	articulacions	feminine plural
+economia#n	false	economia	feminine uncontable plural
+flexibelis#a	true
+inevitable#a	false
+filantropo#n	true	filantropos	masculine plural
+filantropo#a	true	filantropo	masculine singular	filantropos	masculine plural		feminile singular	s	feminile plural
+gravitacional#a	false	gravitacional	masculine singular		masculine plural	gravitacional	feminile singular		feminile plural
+fundamentalmente#r	true
+Costa Do Marfil#pn	false	Costa Do Marfil	feminile
+espanol#n	false	espa–ois	masculine plural
+espanol#a	false	espanol	masculine singular		masculine plural	espa–ola	feminile singular		feminile plural
+espanol#pn	false	espanol	masculine
+nosotruous#prn	false	nosotruous	nominative masculine	nosotruous	dative masculine	nosotruous	accusative masculine
+libre#a	true	libre	masculine singular	libres	masculine plural	libre	feminile singular	libres	feminile plural
+singular#a	false	singular	masculine singular		masculine plural	singular	feminile singular		feminile plural

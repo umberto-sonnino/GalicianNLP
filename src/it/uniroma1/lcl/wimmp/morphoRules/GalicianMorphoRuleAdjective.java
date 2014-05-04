@@ -80,8 +80,10 @@ public class GalicianMorphoRuleAdjective implements MorphoRule {
 		
 		int fromIndex=this.text.indexOf(part);
 		if(fromIndex!=-1){
-			toIndex=this.text.indexOf("|", fromIndex+1);
-			toIndexAlternative=this.text.indexOf("}}", fromIndex+1);
+			toIndex=this.text.indexOf("}}", fromIndex+1);
+			toIndexAlternative=this.text.indexOf("|", fromIndex+1);
+			if(toIndexAlternative<toIndex)
+				toIndex=-1;
 		}
 		
 		if(fromIndex!=-1 && toIndex!=-1){
