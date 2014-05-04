@@ -36,27 +36,11 @@ public class GalicianMorphoRuleVerbConjIR extends GalicianMorphoRuleVerb {
 	public List<MorphoForm> getForms() {
 		super.getForms();
 		
-		for (int i = 0; i < forms.size(); i++) {
-			((GalicianMorphoFormVerb) forms.get(i)).setForm(stem + suffixes[i]);
-		}
+		setSuffixes();
 		
-		if(!present.equals("")){ 
-			//FIRST PERSON SINGULAR PRESENT INDICATIVE IS #6
-			((GalicianMorphoFormVerb) forms.get(6)).setForm(present);
-		}
-		
-		if(!past.equals("")){
-			//PAST PARTICIPLE GUYS ARE #2-#5
-			((GalicianMorphoFormVerb) forms.get(2)).setForm(past);
-			((GalicianMorphoFormVerb) forms.get(3)).setForm(past);
-			((GalicianMorphoFormVerb) forms.get(4)).setForm(past);
-			((GalicianMorphoFormVerb) forms.get(5)).setForm(past);
-		}
-		
-		if(!preterite.equals("")){
-			//FIRST PERSON SINGULAR PRETERITE INDICATIVE IS #18
-			((GalicianMorphoFormVerb) forms.get(18)).setForm(preterite);
-		}
+		setPresent();
+		setPastParticiple();
+		setPreterite();
 		
 		return forms;
 	}

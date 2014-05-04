@@ -199,14 +199,17 @@ public abstract class GalicianMorphoRuleVerb implements MorphoRule {
 	protected void getStemAndEnding(){
 		if(text.contains("gl-verb")){
 
-			int verbIndex = text.indexOf("gl-verb") + "gl-verb|".length();
+			int glVerbIndex = text.indexOf("gl-verb");
+			int verbIndex = text.indexOf("|", glVerbIndex);
 			int stemEnding = text.indexOf("|", verbIndex);
 			stem = text.substring(verbIndex, stemEnding);
-
+			
 			stemEnding++; //getting past the | in the string
 			int verbEndingIndex = text.indexOf("|", stemEnding);
 			int parenthesisIndex = text.indexOf("}}", verbIndex);
-
+			
+			
+			
 			if(parenthesisIndex < verbEndingIndex || verbEndingIndex == -1)
 				ending = text.substring(stemEnding, parenthesisIndex);
 			else
