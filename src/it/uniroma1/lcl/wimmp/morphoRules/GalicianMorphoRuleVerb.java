@@ -211,7 +211,6 @@ public abstract class GalicianMorphoRuleVerb implements MorphoRule {
 				ending = text.substring(stemEnding, parenthesisIndex);
 			else
 				ending = text.substring(stemEnding, verbEndingIndex);
-
 		}
 
 	}
